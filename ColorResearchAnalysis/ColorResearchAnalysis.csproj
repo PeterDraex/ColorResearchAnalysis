@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C6E73D71-C182-42A8-AB01-2E261A74551D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ColorResearchAnalysis</RootNamespace>
+    <AssemblyName>ColorResearchAnalysis</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.105.2, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.105.2\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.105.2, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.105.2\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.105.2, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.105.2\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ColorClusterer.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="FormViewResults.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormViewResults.Designer.cs">
+      <DependentUpon>FormViewResults.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Picture.cs" />
+    <Compile Include="PictureBrowserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormViewResults.resx">
+      <DependentUpon>FormViewResults.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="colors.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dataset\35350_89.jpg" />
+    <Content Include="dataset\35368_6091.jpg" />
+    <Content Include="dataset\35378_3041.jpg" />
+    <Content Include="dataset\35402_6091.jpg" />
+    <Content Include="dataset\35405_6084.jpg" />
+    <Content Include="dataset\35493_6091.jpg" />
+    <Content Include="dataset\35546_3039.jpg" />
+    <Content Include="dataset\35559_89.jpg" />
+    <Content Include="dataset\35577_90.jpg" />
+    <Content Include="dataset\35601_5076.jpg" />
+    <Content Include="dataset\35753_6091.jpg" />
+    <Content Include="dataset\35759_3041.jpg" />
+    <Content Include="dataset\35797_6084.jpg" />
+    <Content Include="dataset\35808_6084.jpg" />
+    <Content Include="dataset\35815_89.jpg" />
+    <Content Include="dataset\35883_5076.jpg" />
+    <Content Include="dataset\35915_5076.jpg" />
+    <Content Include="dataset\35917_6084.jpg" />
+    <Content Include="dataset\35932_6115.jpg" />
+    <Content Include="dataset\35959_89.jpg" />
+    <Content Include="dataset\35979_89.jpg" />
+    <Content Include="dataset\36009_6084.jpg" />
+    <Content Include="dataset\36042_12079.jpg" />
+    <Content Include="dataset\36090_6084.jpg" />
+    <Content Include="dataset\36122_6084.jpg" />
+    <Content Include="dataset\36124_6091.jpg" />
+    <Content Include="dataset\36126_24157.jpg" />
+    <Content Include="dataset\36132_6084.jpg" />
+    <Content Include="dataset\36141_6047.jpg" />
+    <Content Include="dataset\36235_6084.jpg" />
+    <Content Include="dataset\36267_89.jpg" />
+    <Content Include="dataset\36334_5076.jpg" />
+    <Content Include="dataset\36358_20131.jpg" />
+    <Content Include="dataset\36375_89.jpg" />
+    <Content Include="dataset\36395_5076.jpg" />
+    <Content Include="dataset\36437_12124.jpg" />
+    <Content Include="dataset\36451_6084.jpg" />
+    <Content Include="dataset\36471_90.jpg" />
+    <Content Include="dataset\36510_3046.jpg" />
+    <Content Include="dataset\36549_3039.jpg" />
+    <Content Include="dataset\36584_3046.jpg" />
+    <Content Include="dataset\36679_89.jpg" />
+    <Content Include="dataset\36692_1625.jpg" />
+    <Content Include="dataset\36729_89.jpg" />
+    <Content Include="dataset\36847_3041.jpg" />
+    <Content Include="dataset\36893_6084.jpg" />
+    <Content Include="dataset\36898_6084.jpg" />
+    <Content Include="dataset\37006_44.jpg" />
+    <Content Include="dataset\37068_72.jpg" />
+    <Content Include="dataset\37211_6091.jpg" />
+    <Content Include="dataset\37214_10077.jpg" />
+    <Content Include="dataset\37301_12079.jpg" />
+    <Content Include="dataset\37370_9665.jpg" />
+    <Content Include="dataset\37411_30.jpg" />
+    <Content Include="dataset\37420_12079.jpg" />
+    <Content Include="dataset\37461_12079.jpg" />
+    <Content Include="dataset\37496_12079.jpg" />
+    <Content Include="dataset\37739_45.jpg" />
+    <Content Include="dataset\37763_75.jpg" />
+    <Content Include="dataset\37829_6091.jpg" />
+    <Content Include="dataset\37835_75.jpg" />
+    <Content Include="dataset\37940_6084.jpg" />
+    <Content Include="dataset\38020_89.jpg" />
+    <Content Include="dataset\38039_6084.jpg" />
+    <Content Include="dataset\38045_89.jpg" />
+    <Content Include="dataset\38201_12079.jpg" />
+    <Content Include="dataset\38212_5076.jpg" />
+    <Content Include="dataset\38256_12079.jpg" />
+    <Content Include="dataset\38260_6084.jpg" />
+    <Content Include="dataset\38342_6084.jpg" />
+    <Content Include="dataset\38439_90.jpg" />
+    <Content Include="dataset\38517_6047.jpg" />
+    <Content Include="dataset\38542_6074.jpg" />
+    <Content Include="dataset\38554_10077.jpg" />
+    <Content Include="dataset\38576_3041.jpg" />
+    <Content Include="dataset\38653_12079.jpg" />
+    <Content Include="dataset\38677_9119.jpg" />
+    <Content Include="dataset\38701_6084.jpg" />
+    <Content Include="dataset\38803_6084.jpg" />
+    <Content Include="dataset\38871_87.jpg" />
+    <Content Include="dataset\38876_5076.jpg" />
+    <Content Include="dataset\38888_10077.jpg" />
+    <Content Include="dataset\38962_37.jpg" />
+    <Content Include="dataset\38971_44.jpg" />
+    <Content Include="dataset\39036_10077.jpg" />
+    <Content Include="dataset\39099_5076.jpg" />
+    <Content Include="dataset\39221_10077.jpg" />
+    <Content Include="dataset\39226_3041.jpg" />
+    <Content Include="dataset\39255_9674.jpg" />
+    <Content Include="dataset\39342_10077.jpg" />
+    <Content Include="dataset\39376_75.jpg" />
+    <Content Include="dataset\39382_5076.jpg" />
+    <Content Include="dataset\39419_6084.jpg" />
+    <Content Include="dataset\39476_10077.jpg" />
+    <Content Include="dataset\39506_12079.jpg" />
+    <Content Include="dataset\39644_12079.jpg" />
+    <Content Include="dataset\39650_90.jpg" />
+    <Content Include="dataset\39678_12079.jpg" />
+    <Content Include="dataset\39724_12079.jpg" />
+    <Content Include="dataset\39926_89.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Colors\Colors.csproj">
+      <Project>{32da1766-8dfd-49d6-b58c-49ab21a03d08}</Project>
+      <Name>Colors</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.105.2\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.105.2\build\net46\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.105.2\build\net46\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.105.2\build\net46\System.Data.SQLite.Core.targets'))" />
+  </Target>
+</Project>
